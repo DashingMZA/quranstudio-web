@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  SITE_NAME,
+  APP_URL,
+  GITHUB_REPO,
+  LATEST_RELEASE,
+  DEFAULT_SEO,
+} from "../config/site";
+
+const features = [
+  {
+    title: "Surah & Verse Navigation",
+    desc: "Browse any Surah and pick exact verse ranges with a clean, fast picker.",
+    icon: "📖",
+  },
+  {
+    title: "Multiple Reciters",
+    desc: "Choose from renowned Quran reciters with high-quality timed audio.",
+    icon: "🎙️",
+  },
+  {
+    title: "Typography Controls",
+    desc: "Arabic and translation fonts, colors, highlighting — style every line.",
+    icon: "✨",
+  },
+  {
+    title: "Backgrounds",
+    desc: "Solid colors, custom images, or Pixabay stock — make every video unique.",
+    icon: "🖼️",
+  },
+  {
+    title: "Aspect Ratios",
+    desc: "9:16 for Reels/TikTok, 1:1 for Instagram, 16:9 for YouTube — one click.",
+    icon: "📱",
+  },
+  {
+    title: "Private MP4 Export",
+    desc: "Client-side HD export with WebCodecs. Your videos never leave your device.",
+    icon: "🔒",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Pick verses & reciter",
+    desc: "Select a Surah range and a reciter. Audio is timed and ready.",
+  },
+  {
+    n: "02",
+    title: "Style the canvas",
+    desc: "Fonts, colors, backgrounds, headers, translation — live preview.",
+  },
+  {
+    n: "03",
+    title: "Export HD MP4",
+    desc: "One click. Client-side render. Share on YouTube, Reels, or anywhere.",
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden section pt-20 sm:pt-28">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/40 via-surface-950 to-surface-950"></div>
+      <div class="container-narrow text-center">
+        <div class="badge mb-6">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+          Free · Open source · Web + Desktop
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] max-w-4xl mx-auto">
+          Create beautiful<br class="hidden sm:block" />
+          <span class="text-brand-400">Quran recitation videos</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
+          {DEFAULT_SEO.description}
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="/download" class="btn-primary text-base px-7 py-3.5">
+            Download for Desktop
+          </a>
+          <a href={APP_URL} target="_blank" rel="noopener" class="btn-secondary text-base px-7 py-3.5">
+            Open Web App →
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-white/40">
+          Latest: <a href={LATEST_RELEASE.url} class="text-brand-400 hover:underline" target="_blank" rel="noopener">{LATEST_RELEASE.name}</a>
+          · Windows · macOS · Linux
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="border-y border-white/10 bg-white/[0.02]">
+      <div class="container-narrow py-8 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-2xl font-bold text-brand-400">Free</div>
+          <div class="text-sm text-white/50">Forever open source</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-brand-400">HD</div>
+          <div class="text-sm text-white/50">Client-side MP4 export</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-brand-400">3</div>
+          <div class="text-sm text-white/50">Aspect ratios</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-brand-400">Private</div>
+          <div class="text-sm text-white/50">No server upload</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <div class="container-narrow">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Everything you need to make shareable Quran videos</h2>
+          <p class="mt-4 text-white/60">From verse selection to final MP4 — one focused editor built for creators.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map((f) => (
+            <div class="card hover:border-brand-500/30 transition">
+              <div class="text-2xl mb-3">{f.icon}</div>
+              <h3 class="font-semibold text-lg mb-2">{f.title}</h3>
+              <p class="text-sm text-white/60 leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="section bg-white/[0.02] border-y border-white/10">
+      <div class="container-narrow">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">From verses to video in three steps</h2>
+          <p class="mt-4 text-white/60">No account. No upload. Just create and export.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          {steps.map((s) => (
+            <div class="relative">
+              <div class="text-brand-500/30 text-5xl font-extrabold mb-3">{s.n}</div>
+              <h3 class="text-xl font-semibold mb-2">{s.title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Platforms -->
+    <section class="section">
+      <div class="container-narrow">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Web or desktop — same editor</h2>
+          <p class="mt-4 text-white/60">Use it in the browser or install the native app for Windows, macOS, and Linux.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <a href={APP_URL} target="_blank" rel="noopener" class="card group hover:border-brand-500/40 transition flex flex-col">
+            <div class="text-3xl mb-3">🌐</div>
+            <h3 class="font-semibold text-lg group-hover:text-brand-400 transition">Web App</h3>
+            <p class="text-sm text-white/60 mt-2 flex-1">Run instantly in Chrome, Edge, or Firefox with WebCodecs support. No install required.</p>
+            <span class="mt-4 text-sm font-medium text-brand-400">Open app →</span>
+          </a>
+          <a href="/download" class="card group hover:border-brand-500/40 transition flex flex-col">
+            <div class="text-3xl mb-3">💻</div>
+            <h3 class="font-semibold text-lg group-hover:text-brand-400 transition">Desktop App</h3>
+            <p class="text-sm text-white/60 mt-2 flex-1">Native installers for Windows, macOS (Intel + Apple Silicon), and Linux (AppImage, deb, rpm).</p>
+            <span class="mt-4 text-sm font-medium text-brand-400">Download v{LATEST_RELEASE.version} →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open source CTA -->
+    <section class="section border-t border-white/10">
+      <div class="container-narrow text-center">
+        <h2 class="text-3xl font-bold tracking-tight">Open source & free forever</h2>
+        <p class="mt-4 text-white/60 max-w-xl mx-auto">
+          Built with React, Vite, TypeScript, Tailwind, and Tauri. Star the repo, report issues, or contribute.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href={GITHUB_REPO} target="_blank" rel="noopener" class="btn-primary">
+            View on GitHub
+          </a>
+          <a href="/download" class="btn-secondary">
+            Download latest release
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

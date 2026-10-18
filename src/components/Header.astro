@@ -2,14 +2,14 @@
 import { SITE_NAME, NAV_LINKS, APP_URL } from "../config/site";
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-surface-950/80 backdrop-blur-xl">
+<header class="sticky top-0 z-50 border-b border-cream-300 bg-white/90 backdrop-blur-md">
   <div class="container-narrow flex h-16 items-center justify-between">
-    <a href="/" class="flex items-center gap-2.5 font-bold text-lg tracking-tight">
+    <a href="/" class="flex items-center gap-2.5 font-bold text-lg tracking-tight text-ink no-underline">
       <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-extrabold text-white">QS</span>
-      <span>{SITE_NAME}</span>
+      <span class="font-display">{SITE_NAME}</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-1">
+    <nav class="hidden md:flex items-center gap-0.5">
       {NAV_LINKS.map((link) => (
         <a
           href={link.href}
@@ -23,10 +23,10 @@ import { SITE_NAME, NAV_LINKS, APP_URL } from "../config/site";
     </nav>
 
     <div class="flex items-center gap-2">
-      <a href={APP_URL} class="btn-secondary hidden sm:inline-flex text-sm py-2 px-4">
+      <a href={APP_URL} class="btn-ghost hidden sm:inline-flex text-sm no-underline">
         Open Web App
       </a>
-      <a href="/download" class="btn-primary text-sm py-2 px-4">
+      <a href="/download" class="btn-primary text-sm py-2.5 px-4 no-underline">
         Download
       </a>
     </div>

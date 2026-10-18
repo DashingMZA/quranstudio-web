@@ -13,40 +13,40 @@ const year = new Date().getFullYear();
 const visibleSocials = SOCIALS.filter((s) => s.url);
 ---
 
-<footer class="mt-auto border-t border-white/10 bg-surface-950">
+<footer class="mt-auto border-t border-cream-300 bg-white">
   <div class="container-narrow py-12">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
-        <a href="/" class="flex items-center gap-2.5 font-bold text-lg">
-          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-extrabold">QS</span>
+        <a href="/" class="flex items-center gap-2.5 font-bold text-lg text-ink no-underline">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-extrabold text-white">QS</span>
           {SITE_NAME}
         </a>
-        <p class="text-sm text-white/60 max-w-xs">
+        <p class="text-sm text-ink-soft max-w-xs leading-relaxed">
           Free, open-source editor for beautiful Quran recitation videos. Built with love in Pakistan 🇵🇰.
         </p>
       </div>
 
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Product</h3>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-ink-faint mb-4">Product</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="/#features" class="text-white/70 hover:text-white">Features</a></li>
-          <li><a href="/#how-it-works" class="text-white/70 hover:text-white">How it works</a></li>
-          <li><a href="/download" class="text-white/70 hover:text-white">Download</a></li>
-          <li><a href={APP_URL} class="text-white/70 hover:text-white" target="_blank" rel="noopener">Web App</a></li>
+          <li><a href="/#features" class="text-ink-muted hover:text-ink no-underline">Features</a></li>
+          <li><a href="/#how-it-works" class="text-ink-muted hover:text-ink no-underline">How it works</a></li>
+          <li><a href="/download" class="text-ink-muted hover:text-ink no-underline">Download</a></li>
+          <li><a href={APP_URL} class="text-ink-muted hover:text-ink no-underline" target="_blank" rel="noopener">Web App</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Open Source</h3>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-ink-faint mb-4">Open Source</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href={GITHUB_REPO} class="text-white/70 hover:text-white" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href={`${GITHUB_REPO}/releases`} class="text-white/70 hover:text-white" target="_blank" rel="noopener">Releases</a></li>
-          <li><a href={GITHUB_LICENSE} class="text-white/70 hover:text-white" target="_blank" rel="noopener">License</a></li>
+          <li><a href={GITHUB_REPO} class="text-ink-muted hover:text-ink no-underline" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href={`${GITHUB_REPO}/releases`} class="text-ink-muted hover:text-ink no-underline" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href={GITHUB_LICENSE} class="text-ink-muted hover:text-ink no-underline" target="_blank" rel="noopener">License</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Connect</h3>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-ink-faint mb-4">Connect</h3>
         {visibleSocials.length > 0 ? (
           <div class="flex flex-wrap gap-3">
             {visibleSocials.map((s) => (
@@ -54,23 +54,23 @@ const visibleSocials = SOCIALS.filter((s) => s.url);
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition"
+                class="flex h-9 w-9 items-center justify-center rounded-lg border border-cream-300 bg-cream-50 text-ink-muted hover:bg-cream-200 hover:text-ink transition no-underline"
                 aria-label={s.name}
               >
-                <img src={s.icon} alt="" class="h-4 w-4 opacity-80" width="16" height="16" />
+                <img src={s.icon} alt="" class="h-4 w-4 opacity-70" width="16" height="16" />
               </a>
             ))}
           </div>
         ) : (
-          <p class="text-sm text-white/50">Follow on GitHub</p>
+          <p class="text-sm text-ink-soft">Follow on GitHub</p>
         )}
-        <p class="mt-4 text-sm text-white/50">
-          By <a href={AUTHOR_GITHUB} class="text-white/80 hover:text-white" target="_blank" rel="noopener">{AUTHOR_NAME}</a>
+        <p class="mt-4 text-sm text-ink-soft">
+          By <a href={AUTHOR_GITHUB} class="text-ink-muted hover:text-ink font-medium" target="_blank" rel="noopener">{AUTHOR_NAME}</a>
         </p>
       </div>
     </div>
 
-    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/40">
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-cream-300 pt-8 text-xs text-ink-faint">
       <p>© {year} {SITE_NAME}. Open source under MIT.</p>
       <p>Made with ❤︎ in Pakistan</p>
     </div>

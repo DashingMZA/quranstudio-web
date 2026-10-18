@@ -1,0 +1,85 @@
+---
+import "../styles/global.css";
+import {
+  SITE_NAME,
+  SITE_URL,
+  DEFAULT_SEO,
+  GA_ID,
+  SITE_VERIFICATION,
+  type SeoProps,
+} from "../config/site";
+
+interface Props {
+  seo?: Partial<SeoProps>;
+  lang?: string;
+}
+
+const { seo = {}, lang = "en" } = Astro.props;
+const s = { ...DEFAULT_SEO, ...seo };
+const pageUrl = new URL(Astro.url.pathname, SITE_URL).href;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={s.themeColor} />
+    <title>{s.title}</title>
+    <meta name="description" content={s.description} />
+    <link rel="canonical" href={s.canonicalUrl || pageUrl} />
+    <link rel="alternate" hreflang="en" href={s.canonicalUrlen} />
+    <link rel="alternate" hreflang="ur" href={s.canonicalUrlur} />
+    <link rel="alternate" hreflang="x-default" href={s.canonicalUrldefault} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={s.ogtitle} />
+    <meta property="og:description" content={s.ogdescription} />
+    <meta property="og:url" content={s.ogurl || pageUrl} />
+    <meta property="og:site_name" content={s.ogsitename} />
+    <meta property="og:locale" content={s.oglocale} />
+    <meta property="og:locale:alternate" content={s.oglocalealternate} />
+    <meta property="og:type" content={s.ogtype} />
+    <meta property="og:updated_time" content={s.ogupdatedtime} />
+    <meta property="og:image" content={new URL(s.ogimage, SITE_URL).href} />
+    <meta property="og:image:alt" content={s.ogimagealt} />
+    <meta property="og:image:type" content={s.ogimagetype} />
+    <meta property="og:image:width" content={s.ogimagewidth} />
+    <meta property="og:image:height" content={s.ogimageheight} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content={s.twittercard} />
+    <meta name="twitter:title" content={s.twittertitle} />
+    <meta name="twitter:description" content={s.twitterdescription} />
+    <meta name="twitter:image" content={new URL(s.twitterimage, SITE_URL).href} />
+    <meta name="twitter:image:alt" content={s.twitterimagealt} />
+
+    <!-- Verification -->
+    {SITE_VERIFICATION.google && <meta name="google-site-verification" content={SITE_VERIFICATION.google} />}
+    {SITE_VERIFICATION.bing && <meta name="msvalidate.01" content={SITE_VERIFICATION.bing} />}
+    {SITE_VERIFICATION.pinterest && <meta name="p:domain_verify" content={SITE_VERIFICATION.pinterest} />}
+    {SITE_VERIFICATION.yandex && <meta name="yandex-verification" content={SITE_VERIFICATION.yandex} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    {GA_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script is:inline define:vars={{ GA_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        </script>
+      </>
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>

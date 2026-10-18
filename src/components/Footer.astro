@@ -1,0 +1,78 @@
+---
+import {
+  SITE_NAME,
+  AUTHOR_NAME,
+  AUTHOR_GITHUB,
+  GITHUB_REPO,
+  GITHUB_LICENSE,
+  SOCIALS,
+  APP_URL,
+} from "../config/site";
+
+const year = new Date().getFullYear();
+const visibleSocials = SOCIALS.filter((s) => s.url);
+---
+
+<footer class="mt-auto border-t border-white/10 bg-surface-950">
+  <div class="container-narrow py-12">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="space-y-4">
+        <a href="/" class="flex items-center gap-2.5 font-bold text-lg">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-extrabold">QS</span>
+          {SITE_NAME}
+        </a>
+        <p class="text-sm text-white/60 max-w-xs">
+          Free, open-source editor for beautiful Quran recitation videos. Built with love in Pakistan 🇵🇰.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Product</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/#features" class="text-white/70 hover:text-white">Features</a></li>
+          <li><a href="/#how-it-works" class="text-white/70 hover:text-white">How it works</a></li>
+          <li><a href="/download" class="text-white/70 hover:text-white">Download</a></li>
+          <li><a href={APP_URL} class="text-white/70 hover:text-white" target="_blank" rel="noopener">Web App</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Open Source</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href={GITHUB_REPO} class="text-white/70 hover:text-white" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href={`${GITHUB_REPO}/releases`} class="text-white/70 hover:text-white" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href={GITHUB_LICENSE} class="text-white/70 hover:text-white" target="_blank" rel="noopener">License</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Connect</h3>
+        {visibleSocials.length > 0 ? (
+          <div class="flex flex-wrap gap-3">
+            {visibleSocials.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition"
+                aria-label={s.name}
+              >
+                <img src={s.icon} alt="" class="h-4 w-4 opacity-80" width="16" height="16" />
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-sm text-white/50">Follow on GitHub</p>
+        )}
+        <p class="mt-4 text-sm text-white/50">
+          By <a href={AUTHOR_GITHUB} class="text-white/80 hover:text-white" target="_blank" rel="noopener">{AUTHOR_NAME}</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/40">
+      <p>© {year} {SITE_NAME}. Open source under MIT.</p>
+      <p>Made with ❤︎ in Pakistan</p>
+    </div>
+  </div>
+</footer>

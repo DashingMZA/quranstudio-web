@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  SITE_NAME,
+  APP_URL,
+  GITHUB_REPO,
+  GITHUB_RELEASES,
+  LATEST_RELEASE,
+  DEFAULT_SEO,
+} from "../config/site";
+
+const platforms = [
+  {
+    name: "Windows",
+    icon: "🛡️",
+    items: [
+      { label: "Installer (.exe)", url: LATEST_RELEASE.downloads.windows.exe },
+      { label: "MSI package", url: LATEST_RELEASE.downloads.windows.msi },
+    ],
+  },
+  {
+    name: "macOS",
+    icon: "🍎",
+    items: [
+      { label: "Apple Silicon (.dmg)", url: LATEST_RELEASE.downloads.mac.appleSilicon },
+      { label: "Intel (.dmg)", url: LATEST_RELEASE.downloads.mac.intel },
+    ],
+  },
+  {
+    name: "Linux",
+    icon: "🐧",
+    items: [
+      { label: "AppImage", url: LATEST_RELEASE.downloads.linux.appImage },
+      { label: "Debian / Ubuntu (.deb)", url: LATEST_RELEASE.downloads.linux.deb },
+      { label: "Fedora / RHEL (.rpm)", url: LATEST_RELEASE.downloads.linux.rpm },
+    ],
+  },
+];
+---
+
+<Layout
+  seo={{
+    title: `Download ${SITE_NAME} ${LATEST_RELEASE.version}`,
+    description: `Download the latest Quran Studio desktop app for Windows, macOS, and Linux. Free and open source.`,
+    ogtitle: `Download ${SITE_NAME} v${LATEST_RELEASE.version}`,
+    twittertitle: `Download ${SITE_NAME} v${LATEST_RELEASE.version}`,
+  }}
+>
+  <Header />
+
+  <main>
+    <section class="section pt-20">
+      <div class="container-narrow max-w-4xl">
+        <div class="text-center mb-12">
+          <div class="badge mb-4">
+            Latest release · {LATEST_RELEASE.tag}
+          </div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Download {SITE_NAME}
+          </h1>
+          <p class="mt-4 text-lg text-white/60">
+            {LATEST_RELEASE.name} — native apps for Windows, macOS, and Linux.
+            Prefer the browser?{" "}
+            <a href={APP_URL} class="text-brand-400 hover:underline" target="_blank" rel="noopener">
+              Open the web app
+            </a>
+            .
+          </p>
+        </div>
+
+        <div class="grid gap-6">
+          {platforms.map((p) => (
+            <div class="card">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">{p.icon}</span>
+                <h2 class="text-xl font-semibold">{p.name}</h2>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                {p.items.map((item) => (
+                  <a
+                    href={item.url}
+                    class="btn-secondary text-sm"
+                    download
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-10 text-center text-sm text-white/50 space-y-2">
+          <p>
+            All downloads come from the official GitHub release.
+            <a href={LATEST_RELEASE.url} class="text-brand-400 hover:underline" target="_blank" rel="noopener">
+              View release notes
+            </a>
+          </p>
+          <p>
+            Looking for older versions?{" "}
+            <a href={GITHUB_RELEASES} class="text-brand-400 hover:underline" target="_blank" rel="noopener">
+              All releases on GitHub
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

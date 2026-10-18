@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_NAME, SITE_URL, AUTHOR_NAME, GITHUB_REPO } from "../config/site";
+---
+
+<Layout
+  seo={{
+    title: `Privacy policy — ${SITE_NAME}`,
+    description: `Privacy policy for ${SITE_NAME}. We do not collect your videos or require an account.`,
+  }}
+>
+  <Header />
+  <main id="bms-main">
+    <section class="section pt-16 sm:pt-20">
+      <div class="container-narrow max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-brand-600 mb-3">Legal</p>
+        <h1 class="text-4xl font-extrabold tracking-tight text-ink mb-2">Privacy policy</h1>
+        <p class="text-sm text-ink-faint mb-10">Last updated: 19 October 2026</p>
+
+        <div class="space-y-8 text-ink-muted leading-relaxed text-[15px]">
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Overview</h2>
+            <p>
+              {SITE_NAME} ({SITE_URL} and the related web and desktop apps) is made by {AUTHOR_NAME}.
+              This policy explains what we collect and why. The product is designed so that your
+              videos and projects stay on your device.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">No account required</h2>
+            <p>
+              You can use the web app and desktop app without creating an account. We do not ask for
+              email, password, or profile information to create or export videos.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Your videos and projects</h2>
+            <p>
+              Verse selection, styling, and MP4 export run on your device (browser or desktop app).
+              Your content is not uploaded to our servers for rendering. We do not store your videos.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Website analytics</h2>
+            <p>
+              If Google Analytics (or similar) is enabled on this marketing site, it may collect
+              standard usage data such as pages visited and approximate location. Analytics is not
+              used inside the video editor for your project content.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Third-party services</h2>
+            <p>
+              Optional features may contact third parties you choose (for example stock image
+              providers). Their own privacy policies apply to what they receive. The core editor
+              does not require those services to export a video.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Open source</h2>
+            <p>
+              The application source is available on{" "}
+              <a href={GITHUB_REPO} class="link-accent" target="_blank" rel="noopener">GitHub</a>.
+              You can inspect how data is handled in the code.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Contact</h2>
+            <p>
+              Questions about this policy: open an issue on the GitHub repository or contact the
+              maintainer listed there.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

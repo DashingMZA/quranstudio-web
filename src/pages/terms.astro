@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_NAME, SITE_URL, AUTHOR_NAME, GITHUB_REPO, GITHUB_LICENSE } from "../config/site";
+---
+
+<Layout
+  seo={{
+    title: `Terms of use — ${SITE_NAME}`,
+    description: `Terms of use for ${SITE_NAME}. Free open-source software under the MIT license.`,
+  }}
+>
+  <Header />
+  <main id="bms-main">
+    <section class="section pt-16 sm:pt-20">
+      <div class="container-narrow max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wider text-brand-600 mb-3">Legal</p>
+        <h1 class="text-4xl font-extrabold tracking-tight text-ink mb-2">Terms of use</h1>
+        <p class="text-sm text-ink-faint mb-10">Last updated: 19 October 2026</p>
+
+        <div class="space-y-8 text-ink-muted leading-relaxed text-[15px]">
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Agreement</h2>
+            <p>
+              By using {SITE_NAME} (the website at {SITE_URL}, the web app, or the desktop apps)
+              you agree to these terms. The software is provided by {AUTHOR_NAME}.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">License</h2>
+            <p>
+              {SITE_NAME} is open source under the{" "}
+              <a href={GITHUB_LICENSE} class="link-accent" target="_blank" rel="noopener">MIT License</a>.
+              You may use, copy, modify, and distribute the software subject to that license.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">No guarantees</h2>
+            <p>
+              The software is provided “as is”, without warranty of any kind. We do not guarantee
+              uninterrupted operation, fitness for a particular purpose, or that exports will meet
+              every platform’s requirements. Always preview your video before publishing.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Your content</h2>
+            <p>
+              You are responsible for the content you create and publish. Ensure you have the right
+              to use any recitation audio, images, and text according to applicable law and the
+              policies of platforms where you upload videos.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Acceptable use</h2>
+            <p>
+              Do not use the software to create or distribute content that is illegal, harassing, or
+              that infringes the rights of others. We may refuse support or block abuse of related
+              services when necessary.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-bold text-ink mb-2">Changes</h2>
+            <p>
+              We may update the software and these terms. Continued use after changes means you
+              accept the updated terms. The source of truth for the product is the public repository
+              on{" "}
+              <a href={GITHUB_REPO} class="link-accent" target="_blank" rel="noopener">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

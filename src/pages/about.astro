@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import {
+  SITE_NAME,
+  AUTHOR_NAME,
+  AUTHOR_GITHUB,
+  GITHUB_REPO,
+  APP_URL,
+} from "../config/site";
+---
+
+<Layout
+  seo={{
+    title: `About — ${SITE_NAME}`,
+    description: `Quran Studio is a free, open-source Quran video editor by ${AUTHOR_NAME}. Built in Pakistan for creators who want beautiful, private recitation videos.`,
+  }}
+>
+  <Header />
+  <main id="bms-main">
+    <section class="section pt-16 sm:pt-20">
+      <div class="container-narrow max-w-3xl">
+        <div class="text-center mb-12">
+          <p class="text-sm font-bold uppercase tracking-wider text-brand-600 mb-3">About</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
+            Built for creators of Quran content
+          </h1>
+          <p class="mt-4 text-lg text-ink-muted leading-relaxed">
+            {SITE_NAME} is a free, open-source editor to create beautiful Quran recitation videos — on the web or on your desktop.
+          </p>
+        </div>
+
+        <div class="prose-like space-y-6 text-ink-muted leading-relaxed">
+          <p>
+            Making shareable Quran videos usually means juggling editors, audio files, Arabic fonts, and exports that either look weak or force you to upload private content to the cloud.
+          </p>
+          <p>
+            {SITE_NAME} puts verse selection, reciters, typography, backgrounds, and HD export in one focused tool. Rendering happens on your device with WebCodecs — your videos never leave your computer.
+          </p>
+          <p>
+            The project is open source under the MIT license. You can use it, study it, and contribute on{" "}
+            <a href={GITHUB_REPO} class="link-accent" target="_blank" rel="noopener">GitHub</a>.
+          </p>
+        </div>
+
+        <div class="mt-12 card">
+          <h2 class="text-xl font-bold text-ink mb-3">Made by {AUTHOR_NAME}</h2>
+          <p class="text-ink-muted text-sm leading-relaxed mb-4">
+            Built with care in Pakistan 🇵🇰. Feedback, issues, and pull requests are welcome on the GitHub repository.
+          </p>
+          <a href={AUTHOR_GITHUB} class="btn-secondary text-sm no-underline" target="_blank" rel="noopener">
+            View on GitHub →
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/download" class="btn-primary no-underline">Download</a>
+          <a href={APP_URL} target="_blank" rel="noopener" class="btn-secondary no-underline">Open Web App →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

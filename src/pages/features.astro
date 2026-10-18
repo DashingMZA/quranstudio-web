@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_NAME, APP_URL, LATEST_RELEASE } from "../config/site";
+
+const featureGroups = [
+  {
+    title: "Verse & audio",
+    items: [
+      {
+        icon: "📖",
+        title: "Surah & verse picker",
+        desc: "Browse every Surah and select exact verse ranges. Fast search and keyboard-friendly navigation.",
+      },
+      {
+        icon: "🎙️",
+        title: "Multiple reciters",
+        desc: "Choose from renowned Quran reciters with high-quality, timed audio that stays in sync with the text.",
+      },
+      {
+        icon: "⏱️",
+        title: "Timed highlighting",
+        desc: "Verses highlight in time with the recitation so viewers can follow every word.",
+      },
+    ],
+  },
+  {
+    title: "Look & style",
+    items: [
+      {
+        icon: "✨",
+        title: "Typography controls",
+        desc: "Arabic and translation fonts, sizes, colors, and line highlighting — style every line the way you want.",
+      },
+      {
+        icon: "🖼️",
+        title: "Backgrounds",
+        desc: "Solid colors, your own images, or free stock from Pixabay. Make every video unique.",
+      },
+      {
+        icon: "📱",
+        title: "Aspect ratios",
+        desc: "9:16 for Reels and TikTok, 1:1 for Instagram, 16:9 for YouTube — switch with one click.",
+      },
+    ],
+  },
+  {
+    title: "Export & privacy",
+    items: [
+      {
+        icon: "🔒",
+        title: "Private MP4 export",
+        desc: "Client-side HD export with WebCodecs. Your video never leaves your device — no upload, no account.",
+      },
+      {
+        icon: "💻",
+        title: "Web + desktop",
+        desc: "Same editor in the browser and as a native app for Windows, macOS, and Linux.",
+      },
+      {
+        icon: "🆓",
+        title: "Free & open source",
+        desc: "MIT licensed. No watermarks, no trial, no account required. Use it forever.",
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  seo={{
+    title: `Features — ${SITE_NAME}`,
+    description:
+      "Everything in Quran Studio: verse picker, reciters, typography, backgrounds, aspect ratios, and private client-side HD MP4 export.",
+  }}
+>
+  <Header />
+  <main id="bms-main">
+    <section class="section pt-16 sm:pt-20">
+      <div class="container-narrow">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <p class="text-sm font-bold uppercase tracking-wider text-brand-600 mb-3">Features</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
+            Everything you need in one editor
+          </h1>
+          <p class="mt-4 text-lg text-ink-muted leading-relaxed">
+            From picking verses to a finished HD video — without accounts, uploads, or watermarks.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-16 text-center">
+          <div>
+            <div class="text-2xl font-extrabold text-brand-600">Free</div>
+            <div class="text-sm text-ink-soft mt-1">Forever</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-600">HD</div>
+            <div class="text-sm text-ink-soft mt-1">Client-side export</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-600">3</div>
+            <div class="text-sm text-ink-soft mt-1">Aspect ratios</div>
+          </div>
+          <div>
+            <div class="text-2xl font-extrabold text-brand-600">0</div>
+            <div class="text-sm text-ink-soft mt-1">Server uploads</div>
+          </div>
+        </div>
+
+        {featureGroups.map((group) => (
+          <div class="mb-16">
+            <h2 class="text-2xl font-extrabold text-ink mb-6">{group.title}</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {group.items.map((f) => (
+                <div class="card hover:border-brand-200 hover:shadow-md transition">
+                  <div class="text-2xl mb-3">{f.icon}</div>
+                  <h3 class="font-bold text-lg text-ink mb-2">{f.title}</h3>
+                  <p class="text-sm text-ink-muted leading-relaxed">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div class="card bg-brand-50 border-brand-200 text-center p-8 sm:p-10">
+          <h2 class="text-2xl font-extrabold text-ink mb-3">Ready to create?</h2>
+          <p class="text-ink-muted mb-6 max-w-lg mx-auto">
+            Download the desktop app or open the web editor — same features, no signup.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/download" class="btn-primary no-underline">Download v{LATEST_RELEASE.version}</a>
+            <a href={APP_URL} target="_blank" rel="noopener" class="btn-secondary no-underline">Open Web App →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

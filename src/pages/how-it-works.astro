@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_NAME, APP_URL, LATEST_RELEASE } from "../config/site";
+
+const steps = [
+  {
+    n: "01",
+    title: "Pick verses & reciter",
+    desc: "Open any Surah, select a verse range, and choose a reciter. Audio is timed and ready to preview.",
+  },
+  {
+    n: "02",
+    title: "Style the canvas",
+    desc: "Set Arabic and translation fonts, colors, backgrounds, headers, and aspect ratio. Live preview updates as you change settings.",
+  },
+  {
+    n: "03",
+    title: "Export HD MP4",
+    desc: "One click renders the video on your device with WebCodecs. Share on YouTube, Reels, TikTok, or anywhere — nothing is uploaded.",
+  },
+];
+
+const needs = [
+  {
+    title: "A modern browser or desktop app",
+    desc: "Chrome, Edge, or Firefox with WebCodecs support for the web app; or install the native app for Windows, macOS, or Linux.",
+  },
+  {
+    title: "No account required",
+    desc: "Quran Studio does not ask you to sign up. Your projects stay on your machine.",
+  },
+  {
+    title: "Optional: your own images",
+    desc: "Use solid colors, built-in options, or drop in your own background images and logos.",
+  },
+];
+---
+
+<Layout
+  seo={{
+    title: `How it works — ${SITE_NAME}`,
+    description:
+      "From picking verses to an HD MP4 in three steps. No account, no upload — create Quran recitation videos on your device.",
+  }}
+>
+  <Header />
+  <main id="bms-main">
+    <section class="section pt-16 sm:pt-20">
+      <div class="container-narrow">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <p class="text-sm font-bold uppercase tracking-wider text-brand-600 mb-3">How it works</p>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
+            From verses to video in three steps
+          </h1>
+          <p class="mt-4 text-lg text-ink-muted leading-relaxed">
+            No account. No upload. Just create and export on your device.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-20">
+          {steps.map((s) => (
+            <div class="relative">
+              <div class="text-brand-200 text-5xl font-extrabold mb-2 leading-none">{s.n}</div>
+              <h2 class="text-xl font-bold text-ink mb-2">{s.title}</h2>
+              <p class="text-ink-muted text-sm leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mb-16">
+          <h2 class="text-2xl font-extrabold text-ink mb-6 text-center">What you need</h2>
+          <div class="grid sm:grid-cols-3 gap-5">
+            {needs.map((n) => (
+              <div class="card">
+                <h3 class="font-bold text-ink mb-2">{n.title}</h3>
+                <p class="text-sm text-ink-muted leading-relaxed">{n.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="card bg-white border-cream-300 text-center p-8 sm:p-10">
+          <h2 class="text-2xl font-extrabold text-ink mb-3">Start in under a minute</h2>
+          <p class="text-ink-muted mb-6 max-w-lg mx-auto">
+            Open the web app or install the desktop build. Your first video can be ready the same day.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href={APP_URL} target="_blank" rel="noopener" class="btn-primary no-underline">Open Web App →</a>
+            <a href="/download" class="btn-secondary no-underline">Download v{LATEST_RELEASE.version}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

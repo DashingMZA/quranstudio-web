@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build
+dist/
+.astro/
+
+# env
+.env
+.env.*
+!.env.example
+
+# ide / os
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log

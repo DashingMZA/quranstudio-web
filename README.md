@@ -7,23 +7,28 @@ Edit URLs, SEO, socials, GA, verification codes, and the latest release there â€
 
 ## Stack
 
-- Astro 5 (static)
-- Tailwind CSS
+- **Astro 7** (static)
+- **Tailwind CSS 4** (`@tailwindcss/vite`)
 - TypeScript
 - PWA-ready (`manifest.webmanifest`)
+- **Cloudflare Workers** static assets (`wrangler.jsonc`)
+- **Vercel** static (`vercel.json`)
 
 ## Develop
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-## Build
+Requires **Node.js 24+** and **pnpm 12.9.1** (see `packageManager`).
+
+## Build & test
 
 ```bash
-npm run build
-npm run preview
+pnpm build
+pnpm preview
+pnpm test          # types + build + internal link check
 ```
 
 ## Update latest release
@@ -34,5 +39,23 @@ npm run preview
 
 ## Deploy
 
-Any static host (Vercel, Cloudflare Pages, Netlify, GitHub Pages).  
-Set the site URL in `astro.config.mjs` / `site.ts` if needed.
+### Cloudflare Workers (static assets)
+
+```bash
+pnpm deploy:cf
+# or: pnpm build && npx wrangler deploy
+```
+
+Config: `wrangler.jsonc` â†’ serves `./dist` with SPA-style 404 handling.
+
+### Vercel
+
+Connect the GitHub repo in the Vercel dashboard, or:
+
+```bash
+pnpm build
+# framework auto-detected; vercel.json sets build/output
+npx vercel --prod
+```
+
+Any other static host can serve the `dist/` folder.

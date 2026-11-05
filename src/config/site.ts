@@ -8,7 +8,7 @@
 
 // ---------- Site ----------
 export const SITE_URL = "https://quranstudio.cyou";
-export const SITE_NAME = "Quran Studio";
+export const SITE_NAME = "Quran Video Studio";
 /** Web app hosted on the app subdomain */
 export const APP_URL = "https://app.quranstudio.cyou";
 
@@ -17,30 +17,30 @@ export const AUTHOR_NAME = "Zaheer Ahmad";
 export const AUTHOR_GITHUB = "https://github.com/DashingMZA";
 
 // ---------- GitHub repo ----------
-export const GITHUB_REPO = "https://github.com/DashingMZA/quran-studio";
+export const GITHUB_REPO = "https://github.com/DashingMZA/quran-video-maker";
 export const GITHUB_RELEASES = `${GITHUB_REPO}/releases`;
 export const GITHUB_LICENSE = `${GITHUB_REPO}/blob/master/LICENSE`;
 
 // ---------- Latest release (update tag + assets when a new release ships) ----------
 export const LATEST_RELEASE = {
-  version: "1.0.1",
-  tag: "v1.0.1",
-  name: "Quran Studio v1.0.1",
-  publishedAt: "2026-10-17T20:28:33Z",
-  url: `${GITHUB_REPO}/releases/tag/v1.0.1`,
+  version: "1.0.2",
+  tag: "v1.0.2",
+  name: "Quran Video Maker v1.0.2",
+  publishedAt: "2026-11-12T20:28:33Z",
+  url: `${GITHUB_REPO}/releases/tag/v1.0.2`,
   downloads: {
     windows: {
-      exe: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_x64-setup.exe`,
-      msi: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_x64_en-US.msi`,
+      exe: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_x64-setup.exe`,
+      msi: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_x64_en-US.msi`,
     },
     mac: {
-      intel: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_x64.dmg`,
-      appleSilicon: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_aarch64.dmg`,
+      intel: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_x64.dmg`,
+      appleSilicon: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_aarch64.dmg`,
     },
     linux: {
-      appImage: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_amd64.AppImage`,
-      deb: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio_1.0.1_amd64.deb`,
-      rpm: `${GITHUB_REPO}/releases/download/v1.0.1/Quran.Video.Studio-1.0.1-1.x86_64.rpm`,
+      appImage: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_amd64.AppImage`,
+      deb: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker_1.0.2_amd64.deb`,
+      rpm: `${GITHUB_REPO}/releases/download/v1.0.2/Quran.Video.Maker-1.0.2-1.x86_64.rpm`,
     },
   },
 };
@@ -59,7 +59,7 @@ export const SOCIALS: { name: string; url: string; icon: string }[] = [
 
 // ---------- Analytics ----------
 /** Google Analytics 4 measurement ID — paste your ID here (e.g. "G-XXXXXXXXXX"). Empty = no tracking. */
-export const GA_ID = "";
+export const GA_ID = "G-3XWC5QKQKT";
 
 // ---------- Webmaster-tools verification ----------
 // Paste each code; empty = tag omitted.

@@ -64,9 +64,9 @@ export const GA_ID = "G-3XWC5QKQKT";
 // ---------- Webmaster-tools verification ----------
 // Paste each code; empty = tag omitted.
 export const SITE_VERIFICATION = {
-  google: "",
-  bing: "",
-  pinterest: "",
+  google: "_-W3UsTQOoquisHAQCw_NsjPvX5kHvv_Dtm92xOoHBw",
+  bing: "6E4B2FBE2A913AE259C86B5BD03CEBF2",
+  pinterest: "6d2364805d52d0571f65b747bfe28d5d",
   yandex: "",
 };
 
